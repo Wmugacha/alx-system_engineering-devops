@@ -4,4 +4,4 @@
 PRIVATE_KEY_NAME="school"
 PASSPHRASE="betty"
 
-ssh-keygen -t rsa -b 4096 -C "$PRIVATE_KEY_NAME" -N "$PASSPHRASE" -f "$PRIVATE_KEY_NAME"
+ssh-keygen -t rsa -b 4096 -N "$PASSPHRASE" -f "$PRIVATE_KEY_NAME"
