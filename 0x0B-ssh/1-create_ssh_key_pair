@@ -1,4 +1,4 @@
-#1/usr/bin/env bash
+#!/usr/bin/env bash
 # Bash script that creates an RSA key pair.
 # Name of the created private key: school
 # The created key must be protected by the passphrase: betty
