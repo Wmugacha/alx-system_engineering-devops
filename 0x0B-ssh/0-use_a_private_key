@@ -3,4 +3,4 @@
 # Bash script that uses ssh to connect to your server using a private key.
 
 chmod ~/.ssh/school
-ssh -i ~/.ssh/school ubuntu@52.87.211.222
+ssh -i ~/.ssh/school ubuntu@ip-address
