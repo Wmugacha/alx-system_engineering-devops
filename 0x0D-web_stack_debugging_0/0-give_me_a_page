@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Script to fix issue of the docker container
 sudo service start apache2
