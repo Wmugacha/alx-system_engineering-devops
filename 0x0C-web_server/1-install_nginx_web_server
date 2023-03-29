@@ -2,7 +2,7 @@
 # Bash script that configures a new Ubuntu machine to install Nginx
 
 sudo apt-get update
-sudo apt_get -y install nginx
+sudo apt-get -y install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo sed -i 's/listen\s*80;/listen 80 default_server;/g'/etc/nginx/sites-available/default
 sudo service nginx start
