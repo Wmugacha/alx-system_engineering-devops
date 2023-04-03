@@ -1,1 +1,6 @@
-add_header X-Served-By $hostname;
+#!/usr/bin/env bash
+# Bash Script that configures a brand new Ubuntu machine to create a custom header.
+
+sudo sed -i "\^http {/a \\tadd_header X-Served-By $hostname;" /etc/ngingx/nginx.confi
+
+sudo service nginx restart
