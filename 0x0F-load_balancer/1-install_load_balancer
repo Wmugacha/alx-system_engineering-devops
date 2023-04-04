@@ -27,3 +27,5 @@ EOF
 sudo systemctl start haproxy
 
 sudo systemctl enable haproxy
+
+sudo /etc/init.d/haproxy reload
