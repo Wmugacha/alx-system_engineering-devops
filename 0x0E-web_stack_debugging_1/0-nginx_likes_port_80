@@ -13,4 +13,4 @@ sudo sed -i "s/\(^\s*listen\s*\)[0-9]\+/\1$PORT/" "$NGINX_CONFIG"
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Ngingx
-sudo systemctl restart nginx
+sudo service nginx restart
