@@ -2,13 +2,13 @@
 # Script that configures a Nginx server to listen on port 80
 
 # Configure the Nginx server to listen on port 80
-sudo sed -i 's/listen\s*80;/listen 80 default_server;/g'/etc/nginx/sites-available/default
+sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
 
 PORT=80
 
-NGINX_CONFIG="/etc/ngingx/nginx.conf"
+NGINX_CONFIG="/etc/nginx/nginx.conf"
 
-sudo sed -i 's/\(^\s*listen\s*\)[0-9]\+/\1$PORT/' '$NGINX_CONFIG'
+sudo sed -i "s/\(^\s*listen\s*\)[0-9]\+/\1$PORT/" "$NGINX_CONFIG"
 
 # Restart Ngingx
 sudo systemctl restart nginx
