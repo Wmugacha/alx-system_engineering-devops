@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Fix nginx to run on port 80
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx stop
+sudo service nginx start
