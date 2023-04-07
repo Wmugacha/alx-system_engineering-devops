@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Script to query subdomain names and record types
+
+TMPFILE=$(mktemp)
+
+dig www.skycove.tech | grep -A1 'ANSWER SECTION:' > $TMPFILE
+dig web-01.skycove.tech | grep -A1 'ANSWER SECTION:' >> $TMPFILE
+dig web-02.skycove.tech | grep -A1 'ANSWER SECTION:' >> $TMPFILE
+dig lb-01.skycove.tech | grep -A1 'ANSWER SECTION:' >> $TMPFILE
+
+awk '{print $1 " " $5}' <$TMPFILE>
+
+rm $TMPFILE
