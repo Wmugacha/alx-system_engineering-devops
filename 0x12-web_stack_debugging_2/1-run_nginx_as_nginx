@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# script that configures Nginx to run as nginx user with limited privileges
+
+sudo service nginx start
+
+echo "user nginx;" | sudo tee -a /etc/nginx/nginx.conf
+
+sudo service nginx reload
+
+sudo service nginx restart
