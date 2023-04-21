@@ -2,7 +2,28 @@
 # Bash script that configures a new Ubuntu machine to install Nginx and redirect.
 
 sudo apt-get update
+
 sudo apt-get -y install nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i '/server_name _;/a \    location /redirect_me {\n       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n   }' /etc/nginx/sites-available/default
-sudo service nginx restart
+
+# Create a new server block configuration
+cat > /etc/nginx/sites-available/redirect <<EOF
+server {
+    listen 80;
+    listen [::]:80;
+    server_name localhost;
+
+    location /redirect_me {
+        return 301 https://www.example.com/;
+    }
+
+    location / {
+        return 404;
+    }
+}
+EOF
+
+# Enable the new server block configuration
+ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+
+# Test the configuration and restart Nginx
+nginx -t && systemctl restart nginx
