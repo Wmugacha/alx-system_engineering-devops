@@ -19,8 +19,8 @@ frontend MyFrontend
 
 backend myservers
     balance roundrobin
-    server server1 52.87.211.222:80 check
-    server server2 54.157.136.112:80 check
+    server server1 34.239.107.192:80 check
+    server server2 100.25.46.128:80 check
 EOF
 
 # Start HAproxy service
