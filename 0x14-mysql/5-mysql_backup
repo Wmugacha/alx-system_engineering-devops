@@ -3,6 +3,6 @@
 
 MYSQL_PASSWORD="$1"
 
-mysqldump -uroot -p"$MYSQL_PASSWORD" --all-databases | gzip > backup.sql.gz
+mysqldump -uroot -p"$MYSQL_PASSWORD" --all-databases | gzip > backup.sql
 
-tar -cvzf "$(date +%Y-%m-%d)".tar.gz backup.sql.gz
+tar -cvzf "$(date +%Y-%m-%d)".tar.gz backup.sql
