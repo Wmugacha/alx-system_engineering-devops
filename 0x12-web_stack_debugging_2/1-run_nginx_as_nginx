@@ -7,16 +7,10 @@ sudo pkill apache2
 
 echo "user nginx;" >> /etc/nginx/nginx.conf
 
-chown nginx:nginx /etc/nginx/nginx.conf
-
-chmod a+r /etc/nginx/ngix.conf
-
-chmod u+w /etc/nginx/nginx.conf
-
 sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
 
 sudo sed -i 's/listen \[::\]:80/listen \[::\]:8080/' /etc/nginx/sites-available/default
 
 sudo nginx -t
 
-sudo -u nginx service nginx start
+sudo service nginx start
