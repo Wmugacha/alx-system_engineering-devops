@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     emp_id = int(sys.argv[1])
 
-    """Retrieve user data from the API"""
+    #Retrieve user data from the API
     response = requests.get(
             f'https://jsonplaceholder.typicode.com/users/{emp_id}')
 
@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
         name = data['name']
 
-    """Retrieve user's tasks from the API"""
+    #Retrieve user's tasks from the API
         response = requests.get(
                 f'https://jsonplaceholder.typicode.com/todos?userId={emp_id}')
 
