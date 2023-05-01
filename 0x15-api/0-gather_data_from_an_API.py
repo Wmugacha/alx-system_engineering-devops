@@ -7,6 +7,7 @@ about a given employee's progress on their TODO list.
 import requests
 import sys
 
+
 if __name__ == "__main__":
 
     emp_id = int(sys.argv[1])
@@ -14,25 +15,22 @@ if __name__ == "__main__":
     response = requests.get(
             f'https://jsonplaceholder.typicode.com/users/{emp_id}')
 
-    if response.status_code == 200:
-        data = response.json()
+    data = response.json()
 
-        name = data['name']
+    name = data['name']
 
-        response = requests.get(
-                f'https://jsonplaceholder.typicode.com/todos?userId={emp_id}')
+    response = requests.get(
+            f'https://jsonplaceholder.typicode.com/todos?userId={emp_id}')
 
-        if response.status_code == 200:
+    todos = response.json()
 
-            todos = response.json()
+    completed_todos = sum(todo['completed'] for todo in todos)
 
-            completed_todos = sum(todo['completed'] for todo in todos)
+    total_todos = len(todos)
 
-            total_todos = len(todos)
+    print(f"Employee {name} is done with "
+          f"{completed_todos}/{total_todos} tasks:")
 
-            print(f"Employee {name} is done with "
-                  f"{completed_todos}/{total_todos} tasks:")
-
-            for todo in todos:
-                if todo['completed']:
-                    print('\t ' + todo['title'])
+    for todo in todos:
+        if todo['completed']:
+            print('\t ' + todo['title'])
