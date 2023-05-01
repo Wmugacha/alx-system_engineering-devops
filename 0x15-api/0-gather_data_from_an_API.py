@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+""" Script that, using this REST API, for a given employee ID, returns
+    information about his/her TODO list progress """
+
 import requests
 import sys
 
-
-""" Script that, using this REST API, for a given employee ID, returns
-    information about his/her TODO list progress """
 if __name__ == "__main__":
 
     emp_id = int(sys.argv[1])
