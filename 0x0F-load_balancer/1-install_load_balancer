@@ -13,14 +13,14 @@ sudo apt-get install haproxy=2.6.\*
 # Configure HAproxy so that it send traffic to web-01 and web-02.
 
 sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
-frontend MyFrontend
+frontend http_front
     bind *:80
-    default_backend servers
+    default_backend http_rear
 
-backend myservers
+backend http_rear
     balance roundrobin
-    server server1 54.226.20.88:80 check
-    server server2 54.84.247.114:80 check
+    server 112925-web-01 54.226.20.88:80 check
+    server 112925-web-02 54.84.247.114:80 check
 EOF
 
 # Start HAproxy service
