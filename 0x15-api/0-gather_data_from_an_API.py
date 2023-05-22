@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""
-This script fetches JSON data from an API to retrieve information
-about a given employee's progress on their TODO list.
+"""This script fetches JSON data from an API to retrieve information
+   about a given employee's progress on their TODO list.
 """
 
 import requests
 from sys import argv
 
 if __name__ == "__main__":
+    # Acquire Employee Data
 
     emp_id = int(argv[1])
 
