@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""This script fetches JSON data from an API to retrieve information
-   about a given employee's progress on their TODO list."""
+"""
+This script fetches JSON data from an API to retrieve information
+about a given employee's progress on their TODO list.
+"""
 
 import requests
 from sys import argv
@@ -10,25 +12,25 @@ if __name__ == "__main__":
 
     emp_id = int(argv[1])
 
-    response = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{emp_id}')
+    user_response = requests.get(
+                f'https://jsonplaceholder.typicode.com/users/{emp_id}')
 
-    data = response.json()
+    user_data = user_response.json()
 
-    name = data['name']
+    user_name = user_data.get("name")
 
-    response = requests.get(
-            f'https://jsonplaceholder.typicode.com/todos?userId={emp_id}')
+    todos_response = requests.get(
+                f'https://jsonplaceholder.typicode.com/todos?userId={emp_id}')
 
-    todos = response.json()
+    user_todos = todos_response.json()
 
-    completed_todos = sum(todo['completed'] for todo in todos)
+    c_todos = sum(todo['completed'] for todo in user_todos)
 
-    total_todos = len(todos)
+    total_todos = len(user_todos)
 
-    print(f"Employee {name} is done with tasks"
-          f"({completed_todos}/{total_todos}):")
+    print(
+        f"Employee {user_name} is done with tasks ({c_todos}/{total_todos}):")
 
-    for todo in todos:
+    for todo in user_todos:
         if todo['completed']:
             print('\t' + ' ' + todo['title'])
