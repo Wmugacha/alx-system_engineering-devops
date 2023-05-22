@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """This script fetches JSON data from an API to retrieve information
-   about a given employee's progress on their TODO list.
-"""
+   about a given employee's progress on their TODO list."""
 
 import requests
 from sys import argv
