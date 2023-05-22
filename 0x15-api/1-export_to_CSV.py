@@ -27,5 +27,5 @@ if __name__ == "__main__":
     with open(file_name, 'w') as csvfile:
         for item in user_todos:
             csvfile.write('"{}","{}","{}","{}"\n'.format(item.get(
-                "emp_id"), user_name, item.get("completed"),
+                "userId"), user_name, item.get("completed"),
                  item.get("title")))
