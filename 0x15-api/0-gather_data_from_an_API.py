@@ -26,7 +26,7 @@ if __name__ == "__main__":
     total_todos = len(user_todos)
 
     print(
-        f"Employee {user_name} is done with tasks ({c_todos}/{total_todos}):")
+        f"Employee {user_name} is done with tasks({c_todos}/{total_todos}):")
 
     for todo in user_todos:
         if todo['completed']:
