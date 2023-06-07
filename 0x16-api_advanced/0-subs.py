@@ -2,7 +2,6 @@
 """ Module to query the Reddit API """
 
 import requests
-import requests.auth
 
 
 def number_of_subscribers(subreddit):
