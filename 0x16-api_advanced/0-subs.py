@@ -10,7 +10,7 @@ def number_of_subscribers(subreddit):
     """
     headers = {"User-Agent": "My Reddit Script"}
 
-    url = (f"https://www.reddit.com/r/{subreddit}/about.json")
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
@@ -22,4 +22,4 @@ def number_of_subscribers(subreddit):
         return subs
 
     else:
-        return False
+        return 0
