@@ -6,8 +6,9 @@ import requests
 
 def count_words(subreddit, word_list, after=None, word_count=None):
     """ Function that returns count of keywords in a
-        subreddit recursively.
+    subreddit recursively.
     """
+
     if word_count is None:
         word_count = {}
 
