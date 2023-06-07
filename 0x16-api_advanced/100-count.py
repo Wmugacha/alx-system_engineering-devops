@@ -13,7 +13,7 @@ def count_words(subreddit, word_list, after=None, word_count=None):
         word_count = {}
 
     headers = {"User-Agent": "My Reddit Script"}
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     params = {"limit": 100, "after": after}
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
